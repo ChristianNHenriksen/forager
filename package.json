@@ -3,12 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "clean": "rimraf nextjs/",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "predeploy-prod": "npm run clean && npm run build",
+    "deploy-prod": "firebase deploy --project=forager-dk --only hosting:forager-dk"
+  },
+  "engines": {
+    "node": ">=16.0.0 <17.0.0"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.2",
     "@types/node": "20.2.5",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
